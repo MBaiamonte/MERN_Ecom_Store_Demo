@@ -1,9 +1,20 @@
 import React from 'react';
-import {Row, Col} from 'react-bootstrap'
-import products from '../products';
+import {useEffect, useState} from 'react';
+import axios from 'axios'
+import {Row, Col} from 'react-bootstrap';
 import Product from '../components/Product';
 
 const HomeScreen = () => {
+    const [products, setProducts] = useState([])
+    useEffect(()=>{
+        const fetchProducts = async () =>{
+            const {data} = await axios.get('/api/products'); //proxy in json package makes it so we don't need to include "http://localhost:5000"
+            setProducts(data);
+        };
+        fetchProducts();
+    },[]) //end use effect
+
+
     return (
     <>
         <h1>Latest products</h1>
