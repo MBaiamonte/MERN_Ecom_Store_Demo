@@ -4,6 +4,8 @@ import React from 'react';
 import {Row, Col} from 'react-bootstrap';
 import Product from '../components/Product';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 const HomeScreen = () => {
     // const [products, setProducts] = useState([])
@@ -20,9 +22,9 @@ const HomeScreen = () => {
     return (
     <>
         { isLoading ? (
-            <h2>Loading...</h2>
+            <Loader/> // displays Loader Component while loading which is just a spinner 
         ) : error ? (
-            <div>{error?.data?.message || error.error}</div>
+            <Message variant= 'danger'>{error?.data?.message || error.error}</Message>
         ) : (
             <>
                 <h1>Latest products</h1>
