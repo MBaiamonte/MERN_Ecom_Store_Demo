@@ -10,12 +10,20 @@ const authUser =  asyncHandler(async (req , res) => {
     const user = await User.findOne({email:email});
     
     if(user && (await user.matchPassword(password))) {
-        const token = jwt.sign({userId: user._id},process.env.JWT_SECRET, {expiresIn: '1D'}); //pass in payload and secret(which is in env file) and token expiration time frame
+        const token = Jwt.sign({userId: user._id},process.env.JWT_SECRET, {expiresIn: '1D'}); //creates token, pass in payload and secret(which is in env file) and token expiration time frame
+        //set JWT as http only cookie on server
+        res.cookie('jwt', token,{
+            httpOnly: true, 
+            secure: process.env.NODE_ENV !== 'development', //checks if its in development since secure requires https 
+            sameSite:'strict',
+            maxAge: 30*24*60*60*1000 // maxAge is in milSeconds so this essentially saying 30 days
+        })
         res.json({
             _id:user._id,
             name:user.name,
             email:user.email,
             isAdmin:user.isAdmin,
+            //dont send back token for security reasons. 
         });
     }else{
         res.status(401);
