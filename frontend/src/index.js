@@ -16,6 +16,10 @@ import reportWebVitals from './reportWebVitals';
 import HomeScreen from './views/HomeScreen';
 import ProductScreen from './views/ProductScreen';
 import CartScreen from './views/CartScreen';
+import LoginScreen from './views/LoginScreen';
+import RegisterScreen from './views/RegisterScreen';
+import ShippingScreen from './views/ShippingScreen';
+import PrivateRoute from './components/PrivateRoute';
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +27,13 @@ const router= createBrowserRouter(
       <Route  index={true} path='/' element={<HomeScreen/>}/>
       <Route   path='/product/:id' element={<ProductScreen/>}/>
       <Route   path='/cart' element={<CartScreen/>}/>
+      <Route   path='/login' element={<LoginScreen/>}/>
+      <Route path='/register' element={<RegisterScreen/>}/>
+      
+      {/* all private routes are below. everything above is public route. */}
+      <Route path='' element={<PrivateRoute/>}> 
+        <Route path='/shipping' element={<ShippingScreen/>}/>
+      </Route>
     </Route>
   )
 )
