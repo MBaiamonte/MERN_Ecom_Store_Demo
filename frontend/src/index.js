@@ -21,10 +21,14 @@ import LoginScreen from './views/LoginScreen';
 import RegisterScreen from './views/RegisterScreen';
 import ShippingScreen from './views/ShippingScreen';
 import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/AdminRoute';
 import PaymentScreen from './views/PaymentScreen';
 import PlaceOrderScreen from './views/PlaceOrderScreen';
 import OrderScreen from './views/OrderScreen';
 import ProfileScreen from './views/ProfileScreen';
+import OrderListScreen from './views/admin/OrderListScreen';
+import ProductListScreen from './views/admin/ProductListScreen';
+import ProductEditScreen from './views/admin/ProductEditScreen';
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -35,13 +39,20 @@ const router= createBrowserRouter(
       <Route   path='/login' element={<LoginScreen/>}/>
       <Route path='/register' element={<RegisterScreen/>}/>
       
-      {/* all private routes are below. everything above is public route. */}
+      {/* all private user routes are below. everything above is public route. */}
       <Route path='' element={<PrivateRoute/>}> 
         <Route path='/shipping' element={<ShippingScreen/>}/>
         <Route path='/payment' element={<PaymentScreen/>}/>
         <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
         <Route path='/order/:id' element={<OrderScreen/>}/>
         <Route path='/profile' element={<ProfileScreen/>}/>
+      </Route>
+
+      {/* all admin routes are below.*/}
+      <Route path='' element={<AdminRoute/>}> 
+        <Route path='/admin/orderList' element={<OrderListScreen/>}/>
+        <Route path='/admin/productList' element={<ProductListScreen/>}/>
+        <Route path='/admin/product/:id/edit' element={<ProductEditScreen/>}/>
       </Route>
     </Route>
   )
