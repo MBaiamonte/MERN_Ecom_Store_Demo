@@ -1,7 +1,7 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import Product from '../models/productModel.js';
 
-//@desc   fetch all products
+//@desc   Fetch all products
 //@route  GET /api/products
 //@access Public
 const getProducts =  asyncHandler(async (req , res) => {
@@ -10,7 +10,7 @@ const getProducts =  asyncHandler(async (req , res) => {
 });
 
 
-//@desc   fetch a product
+//@desc   Fetch a product
 //@route  GET /api/products/:id
 //@access Public
 const getProductById =  asyncHandler(async (req , res) => {
@@ -42,7 +42,7 @@ const createProduct =  asyncHandler(async (req , res) => {
     res.status(201). json(createProduct);
 });
 
-//@desc   update a products
+//@desc   Update a products
 //@route  PUT /api/products/:id
 //@access Private, Admin
 const updateProduct =  asyncHandler(async (req , res) => {
@@ -61,8 +61,22 @@ const updateProduct =  asyncHandler(async (req , res) => {
         res.json(updatedProduct);
     } else{
         res.status(404);
-        throw new Error('Product/Resource not Found')
+        throw new Error('Product/Resource Not Found')
     }
 });
 
-export {getProducts, getProductById, createProduct, updateProduct};
+//@desc   Delete a product
+//@route  Delete /api/products/:id
+//@access Private, Admin
+const deleteProduct =  asyncHandler(async (req , res) => {
+    const product = await Product.findById(req.params.id);
+    if (product){
+        await Product.deleteOne({_id: product._id})
+        res.status(200).json({message: 'Product Deleted'})
+    } else{
+        res.status(404);
+        throw new Error('Product Not Found')
+    }
+});
+
+export {getProducts, getProductById, createProduct, updateProduct, deleteProduct};

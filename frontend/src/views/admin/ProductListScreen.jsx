@@ -5,15 +5,26 @@ import { FaEdit, FaTrash} from 'react-icons/fa';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import {toast} from 'react-toastify';
-import {useGetProductsQuery, useCreateProductMutation} from '../../slices/productsApiSlice';
+import {useGetProductsQuery, useCreateProductMutation, useDeleteProductMutation} from '../../slices/productsApiSlice';
 
 const ProductListScreen = () => {
     const {data:products, isLoading, error, refetch } = useGetProductsQuery();
     const [createProduct, {isLoading: loadingCreate}] = useCreateProductMutation();
+    const [deleteProduct, {isLoading:loadingDelete}]= useDeleteProductMutation()
     
-    const deleteHandler = (id)=>{
-        console.log('delete ' + id)
-    }
+
+//Start handlers section
+    const deleteHandler = async (id)=>{
+        if(window.confirm('Are You Sure')){
+            try {
+                await deleteProduct(id);
+                toast.success('Product Deleted');
+                refetch();
+            } catch (err) {
+                toast.error(err?.data?.message ||err.error)
+            }
+        }//end if
+    }//end deleteHandler
 
     const createProductHandler = async () =>{
         if(window.confirm('Are You Sure You Want To Create A New Product')){
@@ -23,8 +34,8 @@ const ProductListScreen = () => {
             } catch (err) {
                 toast.error(err?.data?.message || err.error)
             }
-        }
-    }
+        }//end if statement
+    }; // end create product handler
 
     return (
         <>
@@ -39,6 +50,7 @@ const ProductListScreen = () => {
                 </Col>
             </Row>
             {loadingCreate && <Loader/>}
+            {loadingDelete && <Loader/>}
             {isLoading ? <Loader/> : error ? <Message variant='danger'>{error}</Message>: (
                 <>
                 <Table striped hover responsive className='table-sm'>
