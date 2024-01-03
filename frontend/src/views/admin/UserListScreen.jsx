@@ -60,7 +60,7 @@ const UserListScreen = () => {
                         )}
                     </td>
                     <td>
-                    {/* {!user.isAdmin && ( */}
+                    {!user.isAdmin && ( 
                         <>
                         <LinkContainer to={`/admin/user/${user._id}/edit`} style={{ marginRight: '10px' }}>
                             <Button variant='light' className='btn-sm'>
@@ -71,7 +71,7 @@ const UserListScreen = () => {
                             <FaTrash style={{ color: 'white' }} />
                         </Button>
                         </>
-                    {/*  )} */}
+                    )} 
                     </td>
                 </tr>
                 ))}

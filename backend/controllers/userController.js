@@ -156,18 +156,18 @@ const updateUser =  asyncHandler(async (req , res) => {
     if(user){
         user.name=req.body.name || user.name;
         user.email=req.body.email || user.email;
-        user.isAdmin=Boolean(req.body.name || user.name);
+        user.isAdmin=Boolean(req.body.isAdmin);
 
         const updatedUser = await user.save();
         res.status(200).json({
-            _id: updateUser._id,
-            name: updateUser.name,
-            email: updateUser.email,
-            isAdmin: updateUser.isAdmin,
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
         });
     } else{
         res.status(404);
-        throw new Error('User Not Found')
+        throw new Error('User Not Found');
     }
 });
 
