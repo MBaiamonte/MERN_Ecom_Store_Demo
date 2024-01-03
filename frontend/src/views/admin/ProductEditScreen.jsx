@@ -113,11 +113,9 @@ const ProductEditScreen = () => {
                         </Form.Group>
                         <Form.Group className='my-2'>
                             <Form.Label>Description</Form.Label>
-                            <Form.Control type='text' placeholder='Enter Description' value={description} onChange={(e) => setDescription(e.target.value)}>
-                            </Form.Control>
-                            <Button type='submit' variant='primary' className='my-2'>Update</Button>
+                            <Form.Control type='text' placeholder='Enter Description' value={description} onChange={(e) => setDescription(e.target.value)}></Form.Control>
                         </Form.Group>
-
+                        <Button type='submit' variant='primary' className='my-2'>Update</Button>
                     </Form>
                 )}
             </FormContainer>

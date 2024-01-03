@@ -29,7 +29,8 @@ import ProfileScreen from './views/ProfileScreen';
 import OrderListScreen from './views/admin/OrderListScreen';
 import ProductListScreen from './views/admin/ProductListScreen';
 import ProductEditScreen from './views/admin/ProductEditScreen';
-
+import UserListScreen from './views/admin/UserListScreen';
+import UserEditScreen from './views/admin/UserEditScreen';
 const router= createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
@@ -53,6 +54,8 @@ const router= createBrowserRouter(
         <Route path='/admin/orderList' element={<OrderListScreen/>}/>
         <Route path='/admin/productList' element={<ProductListScreen/>}/>
         <Route path='/admin/product/:id/edit' element={<ProductEditScreen/>}/>
+        <Route path='/admin/userList' element={<UserListScreen/>}/>
+        <Route path='/admin/user/:id/edit' element={<UserEditScreen/>}/>
       </Route>
     </Route>
   )
