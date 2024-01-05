@@ -1,22 +1,17 @@
 import React from 'react';
 // import {useEffect, useState} from 'react';
 // import axios from 'axios'
+import { useParams } from 'react-router-dom';
 import {Row, Col} from 'react-bootstrap';
 import Product from '../components/Product';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Paginate from '../components/Paginate';
 
 const HomeScreen = () => {
-    // const [products, setProducts] = useState([])
-    // useEffect(()=>{
-    //     const fetchProducts = async () =>{
-    //         const {data} = await axios.get('/api/products'); //proxy in json package makes it so we don't need to include "http://localhost:5000"
-    //         setProducts(data);
-    //     };
-    //     fetchProducts();
-    // },[]) //end use effect
-    const {data:products, isLoading, error} = useGetProductsQuery();
+    const {pageNumber} = useParams();
+    const {data, isLoading, error} = useGetProductsQuery({pageNumber});
 
 
     return (
@@ -29,12 +24,13 @@ const HomeScreen = () => {
             <>
                 <h1>Latest products</h1>
                 <Row>
-                    {products.map((product)=>(
+                    {data.products.map((product)=>(
                         <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                             <Product product={product}/>
                         </Col>
                     ))} 
                 </Row>
+                <Paginate pages={data.pages} page={data.page}/>
             </>
         )}
     </>
