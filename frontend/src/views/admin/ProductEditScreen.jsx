@@ -35,26 +35,27 @@ const ProductEditScreen = () => {
         }
     },[product]);
 
-    const submitHandler = async (e)=>{
-        e.preventDefault();
-        const updatedProduct = {
+
+const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+        await updateProduct({
             productId,
             name,
             price,
             image,
             brand,
             category,
-            countInStock,
             description,
-        };
-        const result = await updateProduct(updatedProduct);
-        if(result.error){
-            toast.error(result.error)
-        }else {
-            toast.success("Product Updated");
-            navigate('/admin/productList');
+            countInStock,
+        }).unwrap(); 
+        toast.success('Product updated');
+        refetch();
+        navigate('/admin/productList');
+        } catch (err) {
+        toast.error(err?.data?.message || err.error);
         }
-    } //end submit handler
+    };
 
     const uploadFileHandler= async (e)=>{
         const formData = new FormData();
