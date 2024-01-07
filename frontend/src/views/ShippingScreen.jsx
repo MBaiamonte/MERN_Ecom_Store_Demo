@@ -30,20 +30,20 @@ const ShippingScreen = () => {
         <h1>Shipping</h1>
         <Form onSubmit={submitHandler}>
             <Form.Group controlId='address' className='my-2'>
-                <Form.Label>Address</Form.Label>
-                <Form.Control type='text' placeholder='Enter Address' value={address} onChange={(e)=>setAddress(e.target.value)}/>
+                <Form.Label style={{color:"#1f5b83"}} >Address</Form.Label>
+                <Form.Control  style={{color:"#1c1643"}} type='text' placeholder='Enter Address' value={address} onChange={(e)=>setAddress(e.target.value)}/>
             </Form.Group>
             <Form.Group controlId='city' className='my-2'>
-                <Form.Label>City</Form.Label>
-                <Form.Control type='text' placeholder='Enter City' value={city} onChange={(e)=>setCity(e.target.value)}/>
+                <Form.Label style={{color:"#1f5b83"}}>City</Form.Label>
+                <Form.Control  style={{color:"#1c1643"}} type='text' placeholder='Enter City' value={city} onChange={(e)=>setCity(e.target.value)}/>
             </Form.Group>
             <Form.Group controlId='postalCode' className='my-2'>
-                <Form.Label>Postal Code</Form.Label>
-                <Form.Control type='text' placeholder='Enter Postal Code' value={postalCode} onChange={(e)=>setPostalCode(e.target.value)}/>
+                <Form.Label style={{color:"#1f5b83"}}>Postal Code</Form.Label>
+                <Form.Control style={{color:"#1c1643"}} type='text' placeholder='Enter Postal Code' value={postalCode} onChange={(e)=>setPostalCode(e.target.value)}/>
             </Form.Group>
             <Form.Group controlId='country' className='my-2'>
-                <Form.Label>Country</Form.Label>
-                <Form.Control type='text' placeholder='Enter Country' value={country} onChange={(e)=>setCountry(e.target.value)}/>
+                <Form.Label style={{color:"#1f5b83"}}>Country</Form.Label>
+                <Form.Control style={{color:"#1c1643"}} type='text' placeholder='Enter Country' value={country} onChange={(e)=>setCountry(e.target.value)}/>
             </Form.Group>
             <Button type='submit' variant='primary' className='my-2'>Continue</Button>
         </Form>

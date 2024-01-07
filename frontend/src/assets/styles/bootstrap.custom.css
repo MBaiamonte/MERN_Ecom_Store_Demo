@@ -168,7 +168,7 @@
   --bs-primary-border-subtle: #242e38;
   --bs-secondary-border-subtle: #7b8a8b;
   --bs-success-border-subtle: #0e715e;
-  --bs-info-border-subtle: #153d58;
+  --bs-info-border-subtle: #1c1643;
   --bs-warning-border-subtle: #613e07;
   --bs-danger-border-subtle: #8b2e24;
   --bs-light-border-subtle: #7b8a8b;
@@ -232,7 +232,7 @@ h1,
   margin-bottom: 1.2rem;
   font-weight: 500;
   line-height: 1.2;
-  color: var(--bs-heading-color, inherit);
+  color: #1f5b83;
 }
 
 h1,
