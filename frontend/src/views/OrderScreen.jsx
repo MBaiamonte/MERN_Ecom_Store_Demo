@@ -46,7 +46,7 @@ const OrderScreen = () => {
     function onApprove(data, actions){
         return actions.order.capture().then(async function(details){ //<--details comes from paypal
             try {
-                await payOrder({orderId, details});
+                await payOrder({orderId, details}).unwrap();
                 refetch();
                 toast.success('Payment Successful');
             } catch (err) {
@@ -55,12 +55,6 @@ const OrderScreen = () => {
         });
     }//end onApprover
 
-    // For Testing Only, not for production
-    // async function onApproveTest(){
-    //     await payOrder({orderId, details: {payer: {}}});
-    //     refetch();
-    //     toast.success('Payment Successful');
-    // } // end onApproveTest
 
     function onError(err){
         toast.error(err.message)
