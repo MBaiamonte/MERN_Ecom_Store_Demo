@@ -50,49 +50,53 @@ const RegisterScreen = () => {
             <h1>Register</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId='name' className='my-3'>
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label style={{color: '#1f5b83'}}>Name</Form.Label>
                     <Form.Control 
                         type='text' 
                         placeholder='Enter Name' 
                         value={name} 
-                        onChange={(e)=>setName(e.target.value)}>
+                        onChange={(e)=>setName(e.target.value)}
+                        style={{color: '#6987a5'}}>
                     </Form.Control>
                 </Form.Group>
 
                 <Form.Group controlId='email' className='my-3'>
-                    <Form.Label>Email Address</Form.Label>
+                    <Form.Label style={{color: '#1f5b83'}}>Email Address</Form.Label>
                     <Form.Control 
                         type='email' 
                         placeholder='Enter Email' 
                         value={email} 
-                        onChange={(e)=>setEmail(e.target.value)}>
+                        onChange={(e)=>setEmail(e.target.value)}
+                        style={{color: '#6987a5'}}>
                     </Form.Control>
                 </Form.Group>
 
                 <Form.Group controlId='password' className='my-3'>
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label style={{color: '#1f5b83'}}>Password</Form.Label>
                     <Form.Control 
                         type='password' 
                         placeholder='Enter Password' 
                         value={password} 
-                        onChange={(e)=>setPassword(e.target.value)}>
+                        onChange={(e)=>setPassword(e.target.value)}
+                        style={{color: '#6987a5'}}>
                     </Form.Control>
                 </Form.Group>
 
                 <Form.Group controlId='confirmPassword' className='my-3'>
-                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Label style={{color: '#1f5b83'}}>Confirm Password</Form.Label>
                     <Form.Control 
                         type='password' 
                         placeholder='Confirm Password' 
                         value={confirmPassword} 
-                        onChange={(e)=>setConfirmPassword(e.target.value)}>
+                        onChange={(e)=>setConfirmPassword(e.target.value)}
+                        style={{color: '#6987a5'}}>
                     </Form.Control>
                 </Form.Group>
                 <Button type='submit' variant='primary' className='mt-2' disabled={isLoading}> Register </Button>
                 {isLoading && <Loader/>}
             </Form>
             <Row className='py-3'>
-                <Col>
+                <Col style={{color: '#6987a5'}}>
                 Already Have An Account? {' '} <Link to={redirect? `/login?redirect=${redirect}`: '/login'}>Login</Link>
                 </Col>
             </Row>

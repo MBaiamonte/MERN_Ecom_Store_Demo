@@ -144,9 +144,9 @@ const ProductScreen = () => {
                                 </Form.Group>
                                 <Form.Group controlId='comment' className='my-2'>
                                     <Form.Label style={{color: '#1f5b83'}}>Comment</Form.Label>
-                                    <Form.Control as='textarea' row='3' value={comment} onChange={(e)=> setComment(e.target.value)} style={{color: '#6987a5', scrollHight: 5}} ></Form.Control>
+                                    <Form.Control as='textarea' row='3' value={comment} onChange={(e)=> setComment(e.target.value)} style={{color: '#6987a5'}} ></Form.Control>
                                 </Form.Group>
-                                <Button disabled={loadingProductReview} type='submit' variant='primary'>Submit</Button>
+                                <Button disabled={loadingProductReview} type='submit' variant='primary'>Post Review</Button>
                             </Form>
                         ): (
                             <Message>
@@ -162,8 +162,8 @@ const ProductScreen = () => {
                         <ListGroup.Item key={review._id}>
                             <strong style={{color: '#1f5b83'}}>{review.name}</strong>
                             <Rating value={review.rating}/>
-                            <p>{review.createdAt}</p>
-                            <p>{review.comment}</p>
+                            <p style={{color: '#6987a5'}}>{review.createdAt}</p>
+                            <p style={{color: '#6987a5'}}>{review.comment}</p>
                             <hr/>
                         </ListGroup.Item>
                     ))}

@@ -55,20 +55,20 @@ const ProfileScreen = () => {
         <h2>User Profile</h2>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='name' className='my-2'>
-            <Form.Label>Name</Form.Label>
-            <Form.Control type='name' placeholder='Enter Name' value={name} onChange={(e)=>setName(e.target.value)}/>
+            <Form.Label style={{color: '#1f5b83'}}>Name</Form.Label>
+            <Form.Control type='name' placeholder='Enter Name' value={name} onChange={(e)=>setName(e.target.value)} style={{color: '#6987a5'}}/>
           </Form.Group>
           <Form.Group controlId='email' className='my-2'>
-            <Form.Label>Email Address</Form.Label>
-            <Form.Control type='email' placeholder='Enter Email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+            <Form.Label style={{color: '#1f5b83'}}>Email Address</Form.Label>
+            <Form.Control type='email' placeholder='Enter Email' value={email} onChange={(e)=>setEmail(e.target.value)} style={{color: '#6987a5'}}/>
           </Form.Group>
           <Form.Group controlId='password' className='my-2'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type='password' placeholder='Enter Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+            <Form.Label style={{color: '#1f5b83'}}>Password</Form.Label>
+            <Form.Control type='password' placeholder='Enter Password' value={password} onChange={(e)=>setPassword(e.target.value)} style={{color: '#6987a5'}}/>
           </Form.Group>
           <Form.Group controlId='confirmPassword' className='my-2'>
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control type='password' placeholder='Confirm Password' value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}/>
+            <Form.Label style={{color: '#1f5b83'}}>Confirm Password</Form.Label>
+            <Form.Control type='password' placeholder='Confirm Password' value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} style={{color: '#6987a5'}}/>
           </Form.Group>
           <Button type='submit' variant='primary' className='my-2'>Update</Button>
           {loadingUpdateProfile && <Loader/>}
@@ -78,7 +78,7 @@ const ProfileScreen = () => {
 {/* //end left column
 //Start right column */}
       <Col md={9}>
-        <h2> My Orders</h2>
+        <h2> {name}'s Order History</h2>
         {isLoading ? <Loader/> : error ? (
           <Message variant='danger'>
             {error?.data?.message || error.error}
@@ -87,28 +87,28 @@ const ProfileScreen = () => {
             <Table striped hover responsive className='table-small'>
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>DATE</th>
-                  <th>TOTAL</th>
-                  <th>PAID</th>
-                  <th>DELIVERED</th>
-                  <th></th>
+                  <th style={{color: '#1f5b83'}}>DATE</th>
+                  <th style={{color: '#1f5b83'}}>ID</th>
+                  <th style={{color: '#1f5b83'}}>TOTAL</th>
+                  <th style={{color: '#1f5b83'}}>PAID</th>
+                  <th style={{color: '#1f5b83'}}>DELIVERED</th>
+                  <th style={{color: '#1f5b83'}}></th>
                 </tr>
               </thead>
               <tbody>
                 {orders.map((order)=>(
                   <tr key={order._id}>
-                    <td>{order._id}</td>
-                    <td>{order.createdAt.substring(0,10)}</td>
-                    <td>{order.totalPrice}</td>
-                    <td>
+                    <td style={{color: '#6987a5'}}>{order._id}</td>
+                    <td style={{color: '#6987a5'}}>{order.createdAt.substring(0,10)}</td>
+                    <td style={{color: '#6987a5'}}>{order.totalPrice}</td>
+                    <td style={{color: '#34a853'}}>
                       {order.isPaid? (
                         order.paidAt.substring(0,10)
                       ): (
                         <FaTimes style={{color:'red'}}/>
                       )}
                     </td>
-                    <td>
+                    <td style={{color: '#34a853'}}>
                       {order.isDelivered? (
                         order.deliveredAt.substring(0,10)
                       ): (
