@@ -34,9 +34,9 @@ const PaymentScreen = () => {
             <h1>Payment Method</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Group>
-                    <Form.Label as='legend'>Select Method</Form.Label>
+                    <Form.Label as='legend' style={{color: '#1f5b83'}}>Select Method</Form.Label>
                     <Col>
-                        <Form.Check type='radio' className='my-2' label='PayPal or Credit Card' id='PayPal' name='paymentMethod' value='PayPal' checked onChange={(e)=>setPaymentMethod(e.target.value)}></Form.Check>
+                        <Form.Check type='radio' className='my-2' label='PayPal or Credit/Debit' id='PayPal' name='paymentMethod' value='PayPal' checked onChange={(e)=>setPaymentMethod(e.target.value)} style={{color: '#6987a5'}}></Form.Check>
                     </Col>
                 </Form.Group>
                 <Button type='submit' variant='primary'>Continue</Button>

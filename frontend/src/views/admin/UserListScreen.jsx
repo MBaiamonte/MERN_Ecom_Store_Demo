@@ -37,22 +37,22 @@ const UserListScreen = () => {
         <Table striped hover responsive className='table-sm'>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                    <th>ADMIN</th>
-                    <th>ACTIONS</th>
+                    <th style={{color: '#1f5b83'}}>ID</th>
+                    <th style={{color: '#1f5b83'}}>NAME</th>
+                    <th style={{color: '#1f5b83'}}>EMAIL</th>
+                    <th style={{color: '#1f5b83'}}>ADMIN</th>
+                    <th style={{color: '#1f5b83'}}>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
                 {users.map((user) => (
                 <tr key={user._id}>
-                    <td>{user._id}</td>
-                    <td>{user.name}</td>
+                    <td style={{color: '#6987a5'}}>{user._id}</td>
+                    <td style={{color: '#6987a5'}}>{user.name}</td>
                     <td>
-                        <a href={`mailto:${user.email}`}>{user.email}</a>
+                        <a href={`mailto:${user.email}`} style={{color: '#6987a5'}}>{user.email}</a>
                     </td>
-                    <td>
+                    <td style={{color: '#1f5b83'}}>
                         {user.isAdmin ? (
                         <FaCheck style={{ color: 'green' }} />
                         ) : (

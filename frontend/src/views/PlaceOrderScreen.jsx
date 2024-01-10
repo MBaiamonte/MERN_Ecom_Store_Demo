@@ -50,16 +50,16 @@ const PlaceOrderScreen = () => {
 {/* start left col */}
             <Col md={8}>
                 <ListGroup variant='flush'>
-                    <ListGroup.Item>
-                        <h2>Shipping</h2>
+                    <ListGroup.Item style={{color: '#6987a5'}}>
+                        <h2 style={{color: '#1f5b83'}}>Shipping</h2>
                         <p>
-                            <strong>Address: </strong>
+                            <strong style={{color: '#1f5b83'}}>Address: </strong>
                             {cart.shippingAddress.address}, {cart.shippingAddress.city} {cart.shippingAddress.postalCode}, {cart.shippingAddress.country}
                         </p>
                     </ListGroup.Item>
-                    <ListGroup.Item>
-                        <h2>Payment Method</h2>
-                        <strong>Method: </strong>
+                    <ListGroup.Item style={{color: '#6987a5'}}>
+                        <h2 style={{color: '#1f5b83'}}>Payment Method</h2>
+                        <strong style={{color: '#1f5b83'}}>Method: </strong>
                         {cart.paymentMethod}
                     </ListGroup.Item>
                     <ListGroup.Item>
@@ -75,11 +75,11 @@ const PlaceOrderScreen = () => {
                                                 <Image src={item.image} alt={item.name} fluid rounded></Image>
                                             </Col>
                                             <Col>
-                                                <Link to={`/product/${item.product}`}>
+                                                <Link to={`/product/${item.product}`} style={{color: '#1f5b83'}}>
                                                     {item.name}
                                                 </Link>
                                             </Col>
-                                            <Col md={4}>
+                                            <Col md={4} style={{color: '#6987a5'}}>
                                                 {item.qty} x ${item.price} = ${item.qty*item.price}
                                             </Col>
                                         </Row>
@@ -100,30 +100,38 @@ const PlaceOrderScreen = () => {
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <Row>
-                                <Col>Items:</Col>
-                                <Col>${cart.itemsPrice}</Col>
+                                <Col>
+                                    <strong style={{color: '#1f5b83'}}>Items Sum:</strong>
+                                </Col>
+                                <Col style={{color: '#6987a5'}}>${cart.itemsPrice}</Col>
                             </Row>
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <Row>
-                                <Col>Shipping:</Col>
-                                <Col>${cart.shippingPrice}</Col>
+                                <Col>
+                                <strong style={{color: '#1f5b83'}}>Shipping:</strong>
+                                </Col>
+                                <Col style={{color: '#6987a5'}}>${cart.shippingPrice}</Col>
                             </Row>
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <Row>
-                                <Col>Tax:</Col>
-                                <Col>${cart.taxPrice}</Col>
+                                <Col>
+                                <strong style={{color: '#1f5b83'}}>Tax:</strong>
+                                </Col>
+                                <Col style={{color: '#6987a5'}}>${cart.taxPrice}</Col>
                             </Row>
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <Row>
-                                <Col>Total:</Col>
-                                <Col>${cart.totalPrice}</Col>
+                                <Col>
+                                    <strong style={{color: '#1f5b83'}}>Total:</strong>
+                                </Col>
+                                <Col style={{color: '#6987a5'}}>${cart.totalPrice}</Col>
                             </Row>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            {error && <Message variant='danger'>{error.data.message}</Message>}
+                            {error ? <Message variant='danger'>{error.data.message}</Message> : <p className='mt-2' style={{fontStyle: 'italic', color: '#34a853'}}>No Alerts</p>}
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <Button type='button' className='btn-block' disabled={cart.cartItems===0} onClick={placeOrderHandler}>Place Order</Button>

@@ -4,7 +4,7 @@ import {Row, Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Product from '../components/Product';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
-import Loader from '../components/Loader';
+// import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
@@ -19,7 +19,7 @@ const HomeScreen = () => {
     <>
         {!keyword ? <ProductCarousel/>: (<Link to='/' className='btn btn-light mb-4'>Go Back</Link>)}
         { isLoading ? (
-            <Loader/> // displays Loader Component while loading which is just a spinner 
+            <></> // displays Loader Component while loading was removed so it didnt render 2x on reload
         ) : error ? (
             <Message variant= 'danger'>{error?.data?.message || error.error}</Message>
         ) : (
@@ -28,8 +28,8 @@ const HomeScreen = () => {
                 <h1>Latest products</h1>
                 <Row>
                     {data.products.map((product)=>(
-                        <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                            <Product product={product}/>
+                        <Col key={product._id} sm={12} md={6} lg={4} xl={3} >
+                            <Product product={product} />
                         </Col>
                     ))} 
                 </Row>

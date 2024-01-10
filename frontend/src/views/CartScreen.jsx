@@ -41,15 +41,17 @@ const CartScreen = () => {
                                     <Image src={item.image} alt={item.name} fluid rounded/>
                                 </Col>
                                 <Col md={3}>
-                                    <Link to={`/product/${item._id}`}>{item.name}</Link>
+                                    <Link to={`/product/${item._id}`}>
+                                        <p style={{color: '#1f5b83'}}>{item.name}</p>
+                                    </Link>
                                 </Col>
                                 <Col md={2}>
-                                    ${item.price}
+                                    <p style={{color: '#6987a5'}}>${item.price}</p>
                                 </Col>
                                 <Col md={2}>
-                                    <Form.Control as='select' value={item.qty} onChange={(e)=>addToCartHandler(item,Number(e.target.value)) }>
+                                    <Form.Control as='select' value={item.qty} onChange={(e)=>addToCartHandler(item,Number(e.target.value))} style={{color: '#6987a5'}}>
                                         {[...Array(item.countInStock).keys()].map((x)=>(
-                                            <option key={x+1} value= {x+1}>
+                                            <option key={x+1} value={x+1} >
                                                 {x+1}
                                             </option>
                                         ))} 
@@ -57,7 +59,7 @@ const CartScreen = () => {
                                 </Col>
                                 <Col md={2}>
                                     <Button type='button' variant='light' onClick={()=>removeFromCartHandler(item._id)}>
-                                        <FaTrash/>
+                                        <FaTrash style={{color: '#b20200'}}/>
                                     </Button>
                                 </Col>
                             </Row>
@@ -65,13 +67,18 @@ const CartScreen = () => {
                     ))}
                 </ListGroup>
             )}
+            <Row>
+                <ListGroup.Item>
+                    <Button type='button' className='btn-block' style={{marginLeft:10}} onClick={(e)=>navigate("/")} >Continue Shopping</Button>
+                </ListGroup.Item>
+            </Row>
         </Col>
         <Col md={4}>
             <Card>
                 <ListGroup variant='flush'>
                     <ListGroup.Item>
-                        <h2>Subtotal ({cartItems.reduce((acc,item)=> acc+ item.qty, 0)}) items</h2>
-                        ${cartItems.reduce((acc, item)=> acc+item.qty * item.price, 0).toFixed(2)}
+                        <h2 style={{textDecoration:'underline'}}>Subtotal ({cartItems.reduce((acc,item)=> acc+ item.qty, 0)}) items</h2>
+                        <p style={{color: '#1f5b83'}}>${cartItems.reduce((acc, item)=> acc+item.qty * item.price, 0).toFixed(2)}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                         <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkoutHandler} >Proceed to CheckOut</Button>

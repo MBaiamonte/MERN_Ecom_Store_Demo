@@ -51,17 +51,17 @@ const UserEditScreen = () => {
                 {isLoading ? <Loader/> : error ? <Message variant='danger'>{error}</Message> : (
                     <Form onSubmit={submitHandler}>
                         <Form.Group className='my-2'>
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type='text' placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)}>
+                            <Form.Label style={{color: '#1f5b83'}}>Name</Form.Label>
+                            <Form.Control type='text' placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)} style={{color: '#6987a5'}}>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group className='my-2'>
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type='email' placeholder='Enter email' value={email} onChange={(e) => setEmail(e.target.value)}>
+                            <Form.Label style={{color: '#1f5b83'}}>Email</Form.Label>
+                            <Form.Control type='email' placeholder='Enter email' value={email} onChange={(e) => setEmail(e.target.value)} style={{color: '#6987a5'}}>
                             </Form.Control>
                         </Form.Group>
-                        <Form.Group controlId='isAdmin' className='my-2'>
-                            <Form.Check type='checkbox' label='Is Admin' checked={isAdmin}  onChange={(e)=> setIsAdmin(e.target.checked)}></Form.Check>
+                        <Form.Group controlId='isAdmin' className='my-2' style={{color: '#6987a5'}}>
+                            <Form.Check type='checkbox' label='Is Admin' checked={isAdmin}  onChange={(e)=> setIsAdmin(e.target.checked)} style={{color: '#6987a5'}}></Form.Check>
                         </Form.Group>
                         
                         <Button type='submit' variant='primary' className='my-2'>Update</Button>

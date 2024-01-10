@@ -94,14 +94,14 @@ const OrderScreen = () => {
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
                             <h2>Shipping</h2>
-                            <p>
-                                <strong>Name: </strong> {order.user.name}
+                            <p style={{color: '#6987a5'}}>
+                                <strong style={{color: '#1f5b83'}}>Name: </strong> {order.user.name}
                             </p>
-                            <p>
-                                <strong>Email: </strong> {order.user.email}
+                            <p style={{color: '#6987a5'}}>
+                                <strong style={{color: '#1f5b83'}}>Email: </strong> {order.user.email}
                             </p>
-                            <p>
-                                <strong>Address: </strong> {order.shippingAddress.address}, {order.shippingAddress.city} {order.shippingAddress.postalCode}
+                            <p style={{color: '#6987a5'}}>
+                                <strong style={{color: '#1f5b83'}}>Address: </strong> {order.shippingAddress.address}, {order.shippingAddress.city} {order.shippingAddress.postalCode}
                             </p>
                             {order.isDelivered ? (
                                 <Message variant='success'>
@@ -115,8 +115,8 @@ const OrderScreen = () => {
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <h2>Payment Method</h2>
-                            <p>
-                                <strong>Method</strong>
+                            <p style={{color: '#6987a5'}}>
+                                <strong style={{color: '#1f5b83'}}>Method: </strong>
                                 {order.paymentMethod}
                             </p>
                             {order.isPaid ? (
@@ -138,9 +138,9 @@ const OrderScreen = () => {
                                             <Image src={item.image} alt={item.name} fluid rounded/>
                                         </Col>
                                         <Col>
-                                            <Link to={`/product/${item.product}`}>{item.name}</Link>
+                                            <Link to={`/product/${item.product}`} style={{color: '#1f5b83'}}>{item.name}</Link>
                                         </Col>
-                                        <Col md={4}>
+                                        <Col md={4} style={{color: '#6987a5'}}>
                                             {item.qty} x ${item.price} = ${item.qty * item.price}
                                         </Col>
                                     </Row>
@@ -157,20 +157,20 @@ const OrderScreen = () => {
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Items</Col>
-                                    <Col>${order.itemsPrice}</Col>
+                                    <Col style={{color: '#1f5b83'}}>Items</Col>
+                                    <Col style={{color: '#6987a5'}}>${order.itemsPrice}</Col>
                                 </Row>
                                 <Row>
-                                    <Col>Shipping</Col>
-                                    <Col>${order.shippingPrice}</Col>
+                                    <Col style={{color: '#1f5b83'}}>Shipping</Col>
+                                    <Col style={{color: '#6987a5'}}>${order.shippingPrice}</Col>
                                 </Row>
                                 <Row>
-                                    <Col>Tax</Col>
-                                    <Col>${order.taxPrice}</Col>
+                                    <Col style={{color: '#1f5b83'}}>Tax</Col>
+                                    <Col style={{color: '#6987a5'}}>${order.taxPrice}</Col>
                                 </Row>
                                 <Row>
-                                    <Col>Total</Col>
-                                    <Col>${order.totalPrice}</Col>
+                                    <Col style={{color: '#1f5b83'}}>Total</Col>
+                                    <Col style={{color: '#6987a5'}}>${order.totalPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
                                 {!order.isPaid && (

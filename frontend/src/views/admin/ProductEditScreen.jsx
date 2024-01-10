@@ -80,41 +80,41 @@ const submitHandler = async (e) => {
                 {isLoading ? <Loader/> : error ? <Message variant='danger'>{error.data.message}</Message> : (
                     <Form onSubmit={submitHandler}>
                         <Form.Group className='my-2'>
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type='text' placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)}>
+                            <Form.Label style={{color: '#1f5b83'}}>Name</Form.Label>
+                            <Form.Control type='text' placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)} style={{color: '#6987a5'}}>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group className='my-2'>
-                            <Form.Label>Price</Form.Label>
-                            <Form.Control type='number' placeholder='Enter Price' value={price} onChange={(e) => setPrice(e.target.value)}>
+                            <Form.Label style={{color: '#1f5b83'}}>Price</Form.Label>
+                            <Form.Control type='number' placeholder='Enter Price' value={price} onChange={(e) => setPrice(e.target.value)} style={{color: '#6987a5'}}>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group controlId='image' className='my-2'>
-                            <Form.Label>Image</Form.Label>
-                            <Form.Control type='text' placeholder='Enter Image URL' value={image} onChange={(e)=>setImage}>
+                            <Form.Label style={{color: '#1f5b83'}}>Image</Form.Label>
+                            <Form.Control type='text' placeholder='Enter Image URL' value={image} onChange={(e)=>setImage} style={{color: '#6987a5'}}>
                             </Form.Control>
                             <Form.Control type='file' label='Choose File' onChange={uploadFileHandler}></Form.Control>
                         </Form.Group>
                         {loadingUpload && <Loader/>}
 
                         <Form.Group className='my-2'>
-                            <Form.Label>Brand</Form.Label>
-                            <Form.Control type='text' placeholder='Enter Brand' value={brand} onChange={(e) => setBrand(e.target.value)}>
+                            <Form.Label style={{color: '#1f5b83'}}>Brand</Form.Label>
+                            <Form.Control type='text' placeholder='Enter Brand' value={brand} onChange={(e) => setBrand(e.target.value)} style={{color: '#6987a5'}}>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group className='my-2'>
-                            <Form.Label>Count In Stock</Form.Label>
-                            <Form.Control type='number' placeholder='Enter Amount' value={countInStock} onChange={(e) => setCountInStock(e.target.value)}>
+                            <Form.Label style={{color: '#1f5b83'}}>Count In Stock</Form.Label>
+                            <Form.Control type='number' placeholder='Enter Amount' value={countInStock} onChange={(e) => setCountInStock(e.target.value)} style={{color: '#6987a5'}}>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group className='my-2'>
-                            <Form.Label>Category</Form.Label>
-                            <Form.Control type='text' placeholder='Enter Category' value={category} onChange={(e) => setCategory(e.target.value)}>
+                            <Form.Label style={{color: '#1f5b83'}}>Category</Form.Label>
+                            <Form.Control type='text' placeholder='Enter Category' value={category} onChange={(e) => setCategory(e.target.value)} style={{color: '#6987a5'}}>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group className='my-2'>
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control type='text' placeholder='Enter Description' value={description} onChange={(e) => setDescription(e.target.value)}></Form.Control>
+                            <Form.Label style={{color: '#1f5b83'}}>Description</Form.Label>
+                            <Form.Control type='text' placeholder='Enter Description' value={description} onChange={(e) => setDescription(e.target.value)} style={{color: '#6987a5'}}></Form.Control>
                         </Form.Group>
                         <Button type='submit' variant='primary' className='my-2'>Update</Button>
                     </Form>
